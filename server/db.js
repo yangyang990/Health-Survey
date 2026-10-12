@@ -28,11 +28,23 @@ const SCHEMA = `
   );
 `
 
-// Hosted database (Turso) when TURSO_DATABASE_URL is set, otherwise a local SQLite file
+// Finds the hosted database settings. Normally TURSO_DATABASE_URL / TURSO_AUTH_TOKEN, but a
+// hosting integration may name them with its own prefix, so fall back to any libsql:// URL.
+function hostedConfig(env = process.env) {
+  if (env.TURSO_DATABASE_URL) return { url: env.TURSO_DATABASE_URL, authToken: env.TURSO_AUTH_TOKEN }
+  const found = Object.entries(env).find(([key, value]) => /URL$/.test(key) && /^libsql:\/\//.test(value || ''))
+  if (!found) return null
+  const prefix = found[0].replace(/(DATABASE_)?URL$/, '')
+  const tokenKey =
+    [prefix + 'AUTH_TOKEN', prefix + 'TOKEN'].find((key) => env[key]) ||
+    Object.keys(env).find((key) => key.startsWith(prefix) && /TOKEN$/.test(key))
+  return { url: found[1], authToken: tokenKey ? env[tokenKey] : undefined }
+}
+
+// Hosted database (Turso) when configured, otherwise a local SQLite file
 function createDbClient() {
-  if (process.env.TURSO_DATABASE_URL) {
-    return createClient({ url: process.env.TURSO_DATABASE_URL, authToken: process.env.TURSO_AUTH_TOKEN })
-  }
+  const hosted = hostedConfig()
+  if (hosted) return createClient(hosted)
   if (process.env.VERCEL) {
     throw new Error('Database not configured: set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN')
   }
