@@ -1,0 +1,109 @@
+.wrapper {
+  margin: auto;
+  width: 90%;
+  max-width: 1000px;
+  padding: 10px;
+  color: var(--defaultTextColor);
+}
+.title {
+  font-size: 2rem;
+}
+.text {
+  font-size: 1rem;
+}
+.text2 {
+  font-size: 1.2rem;
+}
+.bold {
+  font-weight: 700;
+}
+.green {
+  color: var(--green);
+}
+.formWrapper {
+  border-radius: 10px;
+  border: 1px solid var(--grey);
+  margin-top: 15px;
+  overflow: hidden;
+}
+.formWrapperInner {
+  padding: 20px;
+  text-align: center;
+}
+.formWrapperBottom {
+  background-color: var(--green);
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+.formWrapperBottomInner {
+  display: flex;
+  flex-direction: row;
+  max-width: 500px;
+  margin: auto;
+  justify-content: space-between;
+}
+.formWrapperBottomBox {
+  font-weight: 700;
+  text-align: left;
+}
+.score {
+  font-size: 5rem;
+  font-weight: 700;
+}
+.resultTxt {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.button {
+  padding: 10px 30px;
+  display: inline-block;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(0deg, #555455, #888);
+  user-select: none;
+}
+.sectionScoreWrapper {
+  max-width: 500px;
+  margin: auto;
+}
+.sectionRow {
+  border-bottom: 1px solid var(--green);
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px;
+}
+.sectionRowText {
+  flex: 1 1;
+  text-align: left;
+}
+.sectionRowScore {
+  width: 20%;
+  max-width: 80px;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    width: 100%;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .score {
+    font-size: 4rem;
+  }
+  .resultTxt {
+    font-size: 2.5rem;
+  }
+  .text2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .formWrapperBottomInner {
+    flex-direction: column;
+  }
+}

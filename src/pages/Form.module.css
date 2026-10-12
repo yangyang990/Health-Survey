@@ -1,0 +1,152 @@
+.wrapper {
+  margin: auto;
+  width: 90%;
+  max-width: 1000px;
+  padding: 10px;
+  color: var(--defaultTextColor);
+}
+.title {
+  font-size: 2rem;
+}
+.header {
+  font-size: 1.5rem;
+}
+.text {
+  font-size: 1rem;
+}
+.red {
+  color: red;
+}
+.bold {
+  font-weight: 700;
+}
+.center {
+  text-align: center;
+}
+.formWrapper {
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid var(--grey);
+  margin-top: 15px;
+  text-align: left;
+}
+.scaleBox {
+  background-color: var(--green);
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.scaleBoxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: auto;
+  text-align: left;
+}
+.inputWrapper {
+  margin-bottom: 10px;
+  position: relative;
+}
+.questionWrapper {
+  border-bottom: 1px solid #b2b2b2;
+}
+.questionWrapper,
+.questionWrapperLast {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.questionTableWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.questionTableHeader {
+  background-color: var(--green);
+  color: #fff;
+}
+.questionRow,
+.questionTableHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--questionRowPadding);
+}
+.questionRow {
+  position: relative;
+}
+.questionRow:hover {
+  background-color: #bcef4d;
+}
+.questionEvenRow {
+  background-color: #faf9f9;
+}
+.questionLabel {
+  width: 30%;
+  max-width: 300px;
+  min-width: 200px;
+  padding: var(--questionCellPadding);
+  position: relative;
+}
+.questionOpt {
+  flex: 1 1;
+  align-items: center;
+  padding: var(--questionCellPadding);
+  text-align: center;
+}
+.mobile {
+  display: none;
+}
+.button {
+  padding: 10px 30px;
+  display: inline-block;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(0deg, #555455, #888);
+  user-select: none;
+}
+.errorBubble {
+  background-color: rgba(255, 0, 0, 0.8);
+  padding: 5px;
+  color: white;
+  display: inline-block;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    width: 100%;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .header {
+    font-size: 1.3rem;
+  }
+  .questionRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .questionLabel {
+    font-weight: 700;
+    width: 100%;
+    max-width: 100%;
+  }
+  .questionOpt {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}
